@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>threeLab</title>
+  <meta name="description" content="Descreva, edite, confira e exporte modelos 3D paramétricos para web e impressão 3D." />
+  <meta name="theme-color" content="#141414" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/src/viewer/style.css" />
+</head>
+<body>
+  <aside id="side">
+    <header>
+      <h1><svg class="mark" viewBox="80 80 400 400" aria-hidden="true"><path d="M113.03,113.03 L111.41,113.07 L109.79,113.19 L108.18,113.38 L106.58,113.66 L105.00,114.02 L103.44,114.45 L101.90,114.96 L100.39,115.54 L98.91,116.20 L97.46,116.93 L96.05,117.73 L94.68,118.59 L93.35,119.53 L92.08,120.52 L90.85,121.58 L89.67,122.70 L88.56,123.88 L87.50,125.10 L86.50,126.38 L85.57,127.71 L84.70,129.08 L83.90,130.49 L83.17,131.93 L82.51,133.42 L81.93,134.93 L81.42,136.47 L80.99,138.03 L80.63,139.61 L80.36,141.21 L80.16,142.82 L80.04,144.43 L80.00,146.06 L80.00,446.97 L80.04,448.59 L80.16,450.21 L80.36,451.82 L80.63,453.42 L80.99,455.00 L81.42,456.56 L81.93,458.10 L82.51,459.61 L83.17,461.09 L83.90,462.54 L84.70,463.95 L85.57,465.32 L86.50,466.65 L87.50,467.92 L88.56,469.15 L89.67,470.33 L90.85,471.44 L92.08,472.50 L93.35,473.50 L94.68,474.43 L96.05,475.30 L97.46,476.10 L98.91,476.83 L100.39,477.49 L101.90,478.07 L103.44,478.58 L105.00,479.01 L106.58,479.37 L108.18,479.64 L109.79,479.84 L111.41,479.96 L113.03,480.00 L413.94,480.00 L415.57,479.96 L417.18,479.84 L418.79,479.64 L420.39,479.37 L421.97,479.01 L423.53,478.58 L425.07,478.07 L426.58,477.49 L428.07,476.83 L429.51,476.10 L430.92,475.30 L432.29,474.43 L433.62,473.50 L434.90,472.50 L436.12,471.44 L437.30,470.33 L438.42,469.15 L439.48,467.92 L440.47,466.65 L441.41,465.32 L442.27,463.95 L443.07,462.54 L443.80,461.09 L444.46,459.61 L445.04,458.10 L445.55,456.56 L445.98,455.00 L446.34,453.42 L446.62,451.82 L446.81,450.21 L446.93,448.59 L446.97,446.97 L446.97,303.85 L256.15,303.85 L256.15,113.03Z" fill="currentColor" fill-rule="evenodd"/><path d="M289.17,80.00 L289.17,270.83 L480.00,270.83 L480.00,113.03 L479.96,111.41 L479.84,109.79 L479.64,108.18 L479.37,106.58 L479.01,105.00 L478.58,103.44 L478.07,101.90 L477.49,100.39 L476.83,98.91 L476.10,97.46 L475.30,96.05 L474.43,94.68 L473.50,93.35 L472.50,92.08 L471.44,90.85 L470.33,89.67 L469.15,88.56 L467.92,87.50 L466.65,86.50 L465.32,85.57 L463.95,84.70 L462.54,83.90 L461.09,83.17 L459.61,82.51 L458.10,81.93 L456.56,81.42 L455.00,80.99 L453.42,80.63 L451.82,80.36 L450.21,80.16 L448.59,80.04 L446.97,80.00Z" fill="#FFC21A" fill-rule="evenodd"/></svg><span class="brand-wordmark">threeLab</span></h1>
+      <p class="sub">modelos 3D por código · 1 unidade = 1 mm</p>
+    </header>
+    <section>
+      <button id="new-ai" class="primary wide"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>Novo modelo com IA</button>
+    </section>
+    <section id="mine-box" hidden>
+      <h2>Minhas criações</h2>
+      <ul id="my-scenes" class="scene-list"></ul>
+    </section>
+    <section>
+      <h2>Exemplos</h2>
+      <ul id="scenes" class="scene-list"></ul>
+    </section>
+    <section id="info-box">
+      <h2 id="title">—</h2>
+      <p id="desc"></p>
+      <div id="stats"></div>
+      <button id="refine" class="wide"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>Ajustar com IA</button>
+    </section>
+    <section>
+      <h2>Exportar</h2>
+      <div id="exports" class="grid"></div>
+      <button id="embed" class="wide">Copiar código para site</button>
+    </section>
+    <footer id="side-foot">
+      <a class="badge" href="https://github.com/EduardoVilar23/threelab" target="_blank" rel="noopener noreferrer" title="Código no GitHub: EduardoVilar23/threelab">
+        <span class="badge-l"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M8.08,5.00 L8.03,5.00 L7.97,5.01 L7.92,5.01 L7.87,5.02 L7.82,5.03 L7.77,5.05 L7.72,5.06 L7.67,5.08 L7.62,5.10 L7.57,5.13 L7.52,5.15 L7.48,5.18 L7.44,5.21 L7.39,5.25 L7.35,5.28 L7.32,5.32 L7.28,5.35 L7.25,5.39 L7.21,5.44 L7.18,5.48 L7.15,5.52 L7.13,5.57 L7.10,5.62 L7.08,5.67 L7.06,5.72 L7.05,5.77 L7.03,5.82 L7.02,5.87 L7.01,5.92 L7.01,5.97 L7.00,6.03 L7.00,6.08 L7.00,15.92 L7.00,15.97 L7.01,16.03 L7.01,16.08 L7.02,16.13 L7.03,16.18 L7.05,16.23 L7.06,16.28 L7.08,16.33 L7.10,16.38 L7.13,16.43 L7.15,16.48 L7.18,16.52 L7.21,16.56 L7.25,16.61 L7.28,16.65 L7.32,16.68 L7.35,16.72 L7.39,16.75 L7.44,16.79 L7.48,16.82 L7.52,16.85 L7.57,16.87 L7.62,16.90 L7.67,16.92 L7.72,16.94 L7.77,16.95 L7.82,16.97 L7.87,16.98 L7.92,16.99 L7.97,16.99 L8.03,17.00 L8.08,17.00 L17.92,17.00 L17.97,17.00 L18.03,16.99 L18.08,16.99 L18.13,16.98 L18.18,16.97 L18.23,16.95 L18.28,16.94 L18.33,16.92 L18.38,16.90 L18.43,16.87 L18.48,16.85 L18.52,16.82 L18.56,16.79 L18.61,16.75 L18.65,16.72 L18.68,16.68 L18.72,16.65 L18.75,16.61 L18.79,16.56 L18.82,16.52 L18.85,16.48 L18.87,16.43 L18.90,16.38 L18.92,16.33 L18.94,16.28 L18.95,16.23 L18.97,16.18 L18.98,16.13 L18.99,16.08 L18.99,16.03 L19.00,15.97 L19.00,15.92 L19.00,11.24 L12.76,11.24 L12.76,5.00Z" fill="#FFC21A" fill-rule="evenodd"/></svg>código aberto</span><span class="badge-r">github</span>
+      </a>
+    </footer>
+  </aside>
+  <main id="stage">
+    <div id="toolbar">
+      <button data-view="iso" title="Isométrica">Iso</button>
+      <button data-view="front" title="Frente">Frente</button>
+      <button data-view="side" title="Lado">Lado</button>
+      <button data-view="top" title="Topo">Topo</button>
+      <span class="sep"></span>
+      <button id="wire" title="Wireframe">Malha</button>
+      <button id="bbox" title="Caixa de medidas">Medidas</button>
+      <button id="section" title="Cortar ao meio (ver interior)">Corte</button>
+      <button id="spin" title="Girar">Girar</button>
+      <button id="shot" title="Salvar imagem PNG">PNG</button>
+      <select id="shot-badge" title="Selo no PNG" aria-label="Selo no PNG">
+        <option value="on">Com selo</option>
+        <option value="off">Sem selo</option>
+      </select>
+    </div>
+    <div id="error" hidden></div>
+    <div id="toast" hidden></div>
+  </main>
+  <dialog id="creator">
+    <form method="dialog" class="close-row"><button aria-label="Fechar" class="icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></form>
+    <h2 id="cr-heading">Novo modelo com IA</h2>
+    <p class="lead">Você descreve, a IA escreve o código, o threeLab mostra o modelo. Funciona com qualquer IA
+      (ChatGPT, Claude, Gemini…). Nada é enviado a servidores por este app.</p>
+    <ol class="steps">
+      <li>
+        <h3><span>1</span><b id="cr-label">Descreva o que você quer criar</b></h3>
+        <textarea id="cr-request" rows="3" placeholder="Ex.: suporte de celular com 70 mm de largura e o nome “Ana” em relevo"></textarea>
+        <label class="inline">Para quê? <select id="cr-goal"></select></label>
+      </li>
+      <li>
+        <h3><span>2</span><b>Copie o prompt e cole na sua IA</b></h3>
+        <div class="row">
+          <button id="cr-copy" class="primary" disabled>Copiar prompt</button>
+          <button id="cr-show" class="link" type="button">ver prompt</button>
+        </div>
+        <textarea id="cr-prompt" rows="8" readonly hidden></textarea>
+      </li>
+      <li>
+        <h3><span>3</span><b>Cole a resposta da IA aqui</b></h3>
+        <textarea id="cr-response" rows="8" spellcheck="false" placeholder="Cole aqui o código que a IA devolveu (com ou sem os ```)"></textarea>
+        <div class="row">
+          <button id="cr-load" class="primary">Carregar modelo</button>
+        </div>
+        <div id="cr-error" hidden>
+          <pre></pre>
+          <button id="cr-copy-fix" type="button">Copiar erro para a IA corrigir</button>
+        </div>
+      </li>
+    </ol>
+    <p class="note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>O código da resposta é executado no seu navegador. Cole apenas respostas de IA que você mesmo pediu.</span></p>
+  </dialog>
+  <script type="module" src="/src/viewer/main.js"></script>
+</body>
+</html>

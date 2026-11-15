@@ -1,0 +1,27 @@
+{
+  "name": "threelab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Laboratório 3D controlado pelo Claude: cenas como código, visualizador web e exportação para web e impressão 3D.",
+  "scripts": {
+    "dev": "vite --port 5199",
+    "new": "node cli/new.js",
+    "export": "node cli/export.js",
+    "check": "node cli/check.js",
+    "list": "node cli/list.js",
+    "walls": "node cli/walls.js"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@xmldom/xmldom": "^0.8.10",
+    "fflate": "^0.8.2",
+    "lil-gui": "^0.20.0",
+    "manifold-3d": "^3.5.4",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7"
+  }
+}

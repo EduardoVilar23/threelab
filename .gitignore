@@ -1,0 +1,7 @@
+node_modules/
+exports/
+dist/
+.DS_Store
+
+# Configuração local de ferramentas
+.claude/
